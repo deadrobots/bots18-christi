@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# started to attatch a servo arm. Just finished making a wait for button function.
+# I grabbed a can and attached an et and tophat. Next I should make the robot line follow.
 import os, sys
 from wallaby import *
 
@@ -7,6 +7,8 @@ motorLeft = 3
 motorRight = 0
 servoArm = 0
 servoClaw = 3
+tophat = 4
+et = 5
 
 # added servo arm. continue makeing code for grabbing can.
 def waitForButton():
@@ -51,7 +53,7 @@ def main():
     enable_servos()
     print("Let's Go")
     waitForButton()
-    canGrab()
+    analog(tophat)
 
 if __name__ == "__main__":
     sys.stdout = os.fdopen(sys.stdout.fileno(), "w", 0)

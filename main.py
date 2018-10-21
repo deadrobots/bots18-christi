@@ -10,6 +10,8 @@ servoClaw = 3
 tophat = 4
 et = 5
 
+# Great code overall! -LMB
+
 # added servo arm. continue makeing code for grabbing can.
 def waitForButton():
     print("wait for button.")
@@ -20,10 +22,10 @@ def waitForButton():
 # right angles use time 1550
 # max speed is 1400
 def tickDrive(time, speed1, speed2):
-    if (speed1 > 1400):
+    if (speed1 > 1400): # My printed documentation is incorrect (my bad). But IF-statements don't need parentheses. Please remove unnecessary parentheses -LMB
         print("speed too fast. please pick a number under 1401.")
         speed1 = 1400
-    if (speed1 > 1400):
+    if (speed1 > 1400): # You are checking for "edge-cases" here. This is solid coding. Well done! - LMB
         print("speed too fast. please pick a number under 1401.")
         speed2 = 1400
     mav(motorLeft, speed1)
@@ -41,7 +43,7 @@ def square():
 
 
 def canGrab():
-    set_servo_position(servoArm, 1064)
+    set_servo_position(servoArm, 1064) # Unless you are using named constants for the servo positions, please put a comment explaining whether the arm is moving up, or down, or where... -LMB
     msleep(500)
     set_servo_position(servoClaw, 591)
     msleep(500)

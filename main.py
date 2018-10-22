@@ -53,7 +53,7 @@ def main():
     enable_servos()
     print("Let's Go")
     waitForButton()
-    analog(tophat)
+    analog(5)
 
 if __name__ == "__main__":
     sys.stdout = os.fdopen(sys.stdout.fileno(), "w", 0)

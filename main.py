@@ -41,6 +41,17 @@ def square():
         tickDrive(1700, -500, 500)
         x = x + 1
 
+def lineFollow():
+   set_servo_position(servoClaw, 1152)
+   while analog(et) < 1000:
+        if (analog(tophat) > 2000):
+            mav(motorLeft, -1400)
+            mav(motorRight, 0)
+        else:
+            mav(motorLeft, 0)
+            mav(motorRight, -1400)
+
+
 
 def canGrab():
     set_servo_position(servoArm, 1064) # Unless you are using named constants for the servo positions, please put a comment explaining whether the arm is moving up, or down, or where... -LMB
@@ -50,12 +61,15 @@ def canGrab():
     tickDrive(2000, -1000, -1000)
     set_servo_position(servoClaw, 1519)
 
-
 def main():
     enable_servos()
-    print("Let's Go")
     waitForButton()
-    analog(5)
+    lineFollow()
+
+
+
+
+
 
 if __name__ == "__main__":
     sys.stdout = os.fdopen(sys.stdout.fileno(), "w", 0)

@@ -11,6 +11,7 @@ tophat = 4
 et = 5
 
 # Great code overall! -LMB
+# Looks like you made some progress with your hardware this week. Looking forward to seeing more code, too! -LMB
 
 # added servo arm. continue makeing code for grabbing can.
 def waitForButton():

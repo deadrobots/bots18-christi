@@ -12,7 +12,7 @@ import actions as a
 def main():
     enable_servos()
     a.waitForButton()
-    a.lineFollow()
+    a.gyroLoop()
 
 
 

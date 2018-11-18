@@ -1,5 +1,5 @@
 #!/usr/bin/python
-# I grabbed a can and attached an et and tophat. Next I should make the robot line follow.
+#Try threshold value for gyroLoop absolute value of 200
 import os, sys
 from wallaby import *
 import constants as c
@@ -61,3 +61,12 @@ def canGrab():
     msleep(500)
     tickDrive(2000, -1000, -1000)
     set_servo_position(c.servoClaw, 1519)
+
+def gyroLoop():
+    gy = 0
+    while gy < 5:
+        print(gyro_y())
+        mav(c.motorRight,-1300)
+        mav(c.motorLeft,-1300)
+        msleep(1000)
+        gy = gy + 1

@@ -4,6 +4,7 @@ import os, sys
 from wallaby import *
 import constants as c
 import actions as a
+import camera as m
 
 # Great code overall! -LMB
 # Looks like you made some progress with your hardware this week. Looking forward to seeing more code, too! -LMB
@@ -11,9 +12,11 @@ import actions as a
 
 def main():
     enable_servos()
+    camera_open_black()
     a.waitForButton()
     print("hello!")
-    a.gyroLoop()
+    #m.checkForRed()
+    m.scanForRed()
 
 
 

@@ -12,6 +12,7 @@ import actions as a
 def main():
     enable_servos()
     a.waitForButton()
+    print("hello!")
     a.gyroLoop()
 
 

@@ -64,9 +64,15 @@ def canGrab():
 
 def gyroLoop():
     gy = 0
-    while gy < 5:
-        print(gyro_y())
-        mav(c.motorRight,-1300)
-        mav(c.motorLeft,-1300)
-        msleep(1000)
+    while gy < 3 :
+        while gyro_y() < 200:
+            print(gyro_y())
+            mav(c.motorRight,-1300)
+            mav(c.motorLeft,-1300)
+        if gy == 1:
+           tickDrive(1000,1300,1300)
+           tickDrive(1600,-500,500) 
+        else:
+            tickDrive(1000,1300,1300)
+            tickDrive(1600,500,-500)
         gy = gy + 1

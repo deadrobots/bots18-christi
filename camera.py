@@ -3,6 +3,11 @@ from wallaby import *
 import constants as c
 import actions as a
 
+# great start on the camera code, Christi. You've got a robot that stops when it 
+# sees red. Now add a few more conditional statements (if-statements) to tell it
+# to move left, right, or straight, depending on where the largest red object is
+# use get_object_center_x(c.red)   -LMB
+
 def checkForRed():
     while not right_button():
         camera_update()

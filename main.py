@@ -16,6 +16,7 @@ def main():
     a.waitForButton()
     print("hello!")
     #m.checkForRed()
+    #m.scanForRed()
     m.scanForRed()
 
 

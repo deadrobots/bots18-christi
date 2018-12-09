@@ -13,7 +13,7 @@ def waitForButton():
 # right angles use time 1550
 # max speed is 1400
 def tickDrive(time, speed1, speed2):
-    if (speed1 > 1400): # My printed documentation is incorrect (my bad). But IF-statements don't need parentheses. Please remove unnecessary parentheses -LMB
+    if speed1 > 1400:
         print("speed too fast. please pick a number under 1401.")
         speed1 = 1400
     if (speed1 > 1400): # You are checking for "edge-cases" here. This is solid coding. Well done! - LMB
@@ -55,12 +55,12 @@ def etDrive ():
 
 
 def canGrab():
-    set_servo_position(c.servoArm, 1064) # Unless you are using named constants for the servo positions, please put a comment explaining whether the arm is moving up, or down, or where... -LMB
+    set_servo_position(c.servoArm, 1064) #lowers arm to good grabbing position
     msleep(500)
-    set_servo_position(c.servoClaw, 591)
+    set_servo_position(c.servoClaw, 591) # opens claw to good grabbing position
     msleep(500)
     tickDrive(2000, -1000, -1000)
-    set_servo_position(c.servoClaw, 1519)
+    set_servo_position(c.servoClaw, 1519) # good position for hoding the can
 
 def gyroLoop():
     gy = 0
@@ -76,3 +76,6 @@ def gyroLoop():
             tickDrive(1000,1300,1300)
             tickDrive(1600,500,-500)
         gy = gy + 1
+
+def chuckCan ():
+

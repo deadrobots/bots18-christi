@@ -3,6 +3,7 @@
 import os, sys
 from wallaby import *
 import constants as c
+import camera as m
 # added servo arm. continue makeing code for grabbing can.
 def waitForButton():
     print("wait for button.")
@@ -23,7 +24,7 @@ def tickDrive(time, speed1, speed2):
     mav(c.motorRight, speed2)
     msleep(time)
 
-
+#drives in a square
 def square():
     x = 1
     while x < 5:
@@ -32,6 +33,7 @@ def square():
         tickDrive(1700, -500, 500)
         x = x + 1
 
+# makes the robot line follow
 def lineFollow():
    set_servo_position(c.servoClaw, 512)
    while analog(c.et) < 2300:
@@ -45,15 +47,15 @@ def lineFollow():
    tickDrive(800,-900,-900)
    set_servo_position(c.servoClaw, 1519)
 
-
-def etDrive ():
-   while analog(c.et) < 2900:
-       print(analog(c.et))
+# drives untill the can is a certain distance away
+def etDrive (distance):
+    while analog(c.et) < distance:
        mav(c.motorLeft, -500)
        mav(c.motorRight, -500)
+       print(analog(c.et))
 
 
-
+#drives to can then grabs it
 def canGrab():
     set_servo_position(c.servoArm, 1064) #lowers arm to good grabbing position
     msleep(500)
@@ -62,6 +64,8 @@ def canGrab():
     tickDrive(2000, -1000, -1000)
     set_servo_position(c.servoClaw, 1519) # good position for hoding the can
 
+#if youput the robot in a corner it will drive into the wall then
+# turn and drive into the other wall and keep on going back and forth
 def gyroLoop():
     gy = 0
     while gy < 3 :
@@ -77,5 +81,9 @@ def gyroLoop():
             tickDrive(1600,500,-500)
         gy = gy + 1
 
-def chuckCan ():
-
+def swatCan():
+    set_servo_position(c.servoClaw, 600)
+    m.twistToRed()
+    etDrive(2100)
+    msleep(500)
+    set_servo_position(c.servoClaw, 1650)

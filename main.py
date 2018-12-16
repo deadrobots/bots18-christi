@@ -15,9 +15,9 @@ def main():
     camera_open_black()
     a.waitForButton()
     print("hello!")
-    #m.checkForRed()
-    #m.scanForRed()
-    m.scanForRed()
+    a.swatCan()
+
+
 
 
 

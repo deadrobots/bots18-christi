@@ -7,7 +7,7 @@ motorRight = 0
 servoArm = 0
 servoClaw = 3
 
-#sens0rs
+#sensors
 tophat = 4
 et = 5
 

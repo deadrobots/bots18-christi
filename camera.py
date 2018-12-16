@@ -8,6 +8,7 @@ import actions as a
 # to move left, right, or straight, depending on where the largest red object is
 # use get_object_center_x(c.red)   -LMB
 
+#tells you wether it sees red untill you press the right button
 def checkForRed():
     while not right_button():
         camera_update()
@@ -15,9 +16,9 @@ def checkForRed():
         msleep(500)
 
 
-# I'm not entirely sure what this code does. Please add a comment or two, so others
-# can see just how you are trying to scan for red things. There are three while loops
-# so it can become hard to track without comments -LMB
+
+
+# turns untill it sees red can and then drives to it and grabs it
 def scanForRed():
     done = 0
     mav(c.motorLeft, 10)
@@ -50,3 +51,29 @@ def scanForRed():
     ao()
     msleep(500)
     set_servo_position(c.servoClaw, 1519)
+
+def twistToRed():
+    done = 0
+    mav(c.motorLeft, 10)
+    mav(c.motorRight, -10)
+    while not done:
+        camera_update()
+        print(get_object_count(c.red), get_object_area(c.red, 0))
+        if get_object_count(c.red) > 0 and get_object_area(c.red, 0) > 700:
+            mav(c.motorLeft, 0)
+            mav(c.motorRight, 0)
+            done = 1
+        msleep(50)
+    get_object_count(c.red)
+    if get_object_count(c.red)> 0:
+        mav(c.motorRight, -300)
+        mav(c.motorLeft, 300)
+        while get_object_center(c.red, 0).x < 60:
+            camera_update()
+            print(get_object_center(c.red, 0).x)
+        ao()
+        msleep(500)
+    else:
+        pass
+
+

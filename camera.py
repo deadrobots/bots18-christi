@@ -15,6 +15,9 @@ def checkForRed():
         msleep(500)
 
 
+# I'm not entirely sure what this code does. Please add a comment or two, so others
+# can see just how you are trying to scan for red things. There are three while loops
+# so it can become hard to track without comments -LMB
 def scanForRed():
     done = 0
     mav(c.motorLeft, 10)
